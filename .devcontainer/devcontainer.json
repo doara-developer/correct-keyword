@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.134.0/containers/python-3
+{
+	"name": "Python 3",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8
+		"args": { "VARIANT": "3" }
+	},
+
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"python.pythonPath": "/workspaces/correct-keyword/.venv/bin/python",
+		"python.linting.enabled": true,
+		"python.linting.pylintEnabled": false,
+        "python.linting.flake8Enabled": true,
+		"python.linting.banditEnabled": false,
+		"python.formatting.autopep8Path": "/workspaces/correct-keyword/.venv/bin/autopep8",
+		"python.formatting.blackPath": "/workspaces/correct-keyword/.venv/bin/black",
+		"python.formatting.yapfPath": "/workspaces/correct-keyword/.venv/bin/yapf",
+		"python.linting.banditPath": "/workspaces/correct-keyword/.venv/bin/bandit",
+		"python.linting.flake8Path": "/workspaces/correct-keyword/.venv/bin/flake8",
+		"python.linting.mypyPath": "/workspaces/correct-keyword/.venv/bin/mypy",
+		"python.linting.pycodestylePath": "/workspaces/correct-keyword/.venv/bin/pycodestyle",
+		"python.linting.pydocstylePath": "/workspaces/correct-keyword/.venv/bin/pydocstyle",
+		"python.linting.pylintPath": "/workspaces/correct-keyword/.venv/bin/pylint"
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"ms-python.python"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [9000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "pip3 install -r requirements.txt",
+
+	// Comment out to connect as root instead.
+	"remoteUser": "vscode"
+}
