@@ -12,3 +12,5 @@ if __name__ == '__main__':
     connector = Search(TWITTER_TOKEN)
     result = connector.search(SEARCH_KEYWORD)
     print(result.total)
+    for i in range(10):
+        print(result.word_list.word_list[i])
